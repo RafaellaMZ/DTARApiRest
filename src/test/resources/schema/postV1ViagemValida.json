@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "data",
+    "errors"
+  ],
+  "properties": {
+    "data": {
+      "type": "object",
+      "default": {},
+      "title": "The data Schema",
+      "required": [
+        "id",
+        "localDeDestino",
+        "dataPartida",
+        "dataRetorno",
+        "acompanhante",
+        "regiao"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 0,
+          "title": "The id Schema",
+          "examples": [
+            1
+          ]
+        },
+        "localDeDestino": {
+          "type": "string",
+          "default": "",
+          "title": "The localDeDestino Schema",
+          "examples": [
+            "Fortaleza"
+          ]
+        },
+        "dataPartida": {
+          "type": "string",
+          "default": "",
+          "title": "The dataPartida Schema",
+          "examples": [
+            "2021-02-02"
+          ]
+        },
+        "dataRetorno": {
+          "type": "string",
+          "default": "",
+          "title": "The dataRetorno Schema",
+          "examples": [
+            "2021-02-03"
+          ]
+        },
+        "acompanhante": {
+          "type": "string",
+          "default": "",
+          "title": "The acompanhante Schema",
+          "examples": [
+            "Nelson"
+          ]
+        },
+        "regiao": {
+          "type": "string",
+          "default": "",
+          "title": "The regiao Schema",
+          "examples": [
+            "Nordeste"
+          ]
+        }
+      },
+      "examples": [{
+        "id": 1,
+        "localDeDestino": "Fortaleza",
+        "dataPartida": "2021-02-02",
+        "dataRetorno": "2021-02-03",
+        "acompanhante": "Nelson",
+        "regiao": "Nordeste"
+      }]
+    },
+    "errors": {
+      "type": "array",
+      "default": [],
+      "title": "The errors Schema",
+      "items": {},
+      "examples": [
+        []
+      ]
+    }
+  },
+  "examples": [{
+    "data": {
+      "id": 1,
+      "localDeDestino": "Fortaleza",
+      "dataPartida": "2021-02-02",
+      "dataRetorno": "2021-02-03",
+      "acompanhante": "Nelson",
+      "regiao": "Nordeste"
+    },
+    "errors": []
+  }]
+}
