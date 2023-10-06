@@ -27,7 +27,7 @@ public class ViagensTest {
 
         Usuario usuarioAdministrador = UsuarioDataFactory.criarUsuarioAdministrador();
 
-        String token = given()
+        this.token = given()
                 .contentType(ContentType.JSON)
                 .body(usuarioAdministrador)
             .when()
@@ -38,7 +38,7 @@ public class ViagensTest {
     }
 
     @Test
-    public void testCadastroDeViagemRetornaSucesso(){
+    public void testCadastroDeViagemRetornaSucesso() throws IOException {
         Viagem viagemValida = ViagemDataFactory.criarViagemValida();
 
         given()
@@ -50,8 +50,8 @@ public class ViagensTest {
         .then()
                 .assertThat()
                     .statusCode(201)
-                    .body("data.localDeDestino", equalTo("Fortaleza"))
-                    .body("data.acompanhante", equalToIgnoringCase("Nelson"));
+                    .body("data.localDeDestino", equalTo("Osasco"))
+                    .body("data.acompanhante", equalToIgnoringCase("Julio"));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class ViagensTest {
     }
 
     @Test
-    public void testCadastroDeViagemValidaContrato(){
+    public void testCadastroDeViagemValidaContrato() throws IOException {
         //Configurações RestAssured
         baseURI = "http://localhost";
         port = 8089;

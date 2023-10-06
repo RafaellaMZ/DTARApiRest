@@ -93,16 +93,15 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>4.4.0</version>
+			<version>4.2.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>json-schema-validator</artifactId>
-			<version>4.4.0</version>
+			<version>4.2.0</version>
 		</dependency>
-
 
 	</dependencies>
 
