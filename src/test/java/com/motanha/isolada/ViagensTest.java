@@ -52,7 +52,7 @@ public class ViagensTest {
                     .path("data.token");
     }
 
-    /*@Test
+    @Test
     public void testCadastroDeViagemRetornaSucesso() throws IOException {
         Viagem viagemValida = ViagemDataFactory.criarViagemValida();
 
@@ -103,7 +103,7 @@ public class ViagensTest {
                 .assertThat()
                     .statusCode(201)
                     .body(matchesJsonSchemaInClasspath("schema/postV1ViagemValida.json"));
-    } */
+    }
 
     @Test
     public void testRetornaUmaViagemPossuiStatusCode200EMostraLocalDeDestino() {
