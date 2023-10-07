@@ -35,7 +35,7 @@
           "default": "",
           "title": "The localDeDestino Schema",
           "examples": [
-            "Fortaleza"
+            "Osasco"
           ]
         },
         "dataPartida": {
@@ -43,7 +43,7 @@
           "default": "",
           "title": "The dataPartida Schema",
           "examples": [
-            "2021-02-02"
+            "2020-07-27"
           ]
         },
         "dataRetorno": {
@@ -51,7 +51,7 @@
           "default": "",
           "title": "The dataRetorno Schema",
           "examples": [
-            "2021-02-03"
+            "2020-08-01"
           ]
         },
         "acompanhante": {
@@ -59,7 +59,7 @@
           "default": "",
           "title": "The acompanhante Schema",
           "examples": [
-            "Nelson"
+            "Julio"
           ]
         },
         "regiao": {
@@ -67,17 +67,17 @@
           "default": "",
           "title": "The regiao Schema",
           "examples": [
-            "Nordeste"
+            "Sul"
           ]
         }
       },
       "examples": [{
         "id": 1,
-        "localDeDestino": "Fortaleza",
-        "dataPartida": "2021-02-02",
-        "dataRetorno": "2021-02-03",
-        "acompanhante": "Nelson",
-        "regiao": "Nordeste"
+        "localDeDestino": "Osasco",
+        "dataPartida": "2020-07-27",
+        "dataRetorno": "2020-08-01",
+        "acompanhante": "Julio",
+        "regiao": "Sul"
       }]
     },
     "errors": {
@@ -93,11 +93,11 @@
   "examples": [{
     "data": {
       "id": 1,
-      "localDeDestino": "Fortaleza",
-      "dataPartida": "2021-02-02",
-      "dataRetorno": "2021-02-03",
-      "acompanhante": "Nelson",
-      "regiao": "Nordeste"
+      "localDeDestino": "Osasco",
+      "dataPartida": "2020-07-27",
+      "dataRetorno": "2020-08-01",
+      "acompanhante": "Julio",
+      "regiao": "Sul"
     },
     "errors": []
   }]

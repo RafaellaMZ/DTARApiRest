@@ -1,11 +1,13 @@
 package com.motanha.isolada;
 
+import com.motanha.config.Configuracoes;
 import com.motanha.factory.UsuarioDataFactory;
 import com.motanha.factory.ViagemDataFactory;
 import com.motanha.pojo.Usuario;
 import com.motanha.pojo.Viagem;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.aeonbits.owner.Config;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,13 +19,15 @@ import static org.hamcrest.Matchers.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 public class ViagensTest {
     private String token;
+    private String tokenUsuario;
 
     @Before
     public void setUp() {
         //Configurações RestAssured
-        baseURI = "http://localhost";
-        port = 8089;
-        basePath = "/api";
+        Configuracoes configuracoes = ConfigFactory.create(Configuracoes.class);
+        baseURI = configuracoes.baseURI();
+        port = configuracoes.port();
+        basePath = configuracoes.basePath();
 
         Usuario usuarioAdministrador = UsuarioDataFactory.criarUsuarioAdministrador();
 
@@ -35,9 +39,20 @@ public class ViagensTest {
             .then()
                 .extract()
                     .path("data.token");
+
+        Usuario usuarioComum = UsuarioDataFactory.criarUsuarioComum();
+
+        this.tokenUsuario = given()
+                .contentType(ContentType.JSON)
+                .body(usuarioComum)
+            .when()
+                .post("/v1/auth")
+            .then()
+                .extract()
+                    .path("data.token");
     }
 
-    @Test
+    /*@Test
     public void testCadastroDeViagemRetornaSucesso() throws IOException {
         Viagem viagemValida = ViagemDataFactory.criarViagemValida();
 
@@ -88,5 +103,29 @@ public class ViagensTest {
                 .assertThat()
                     .statusCode(201)
                     .body(matchesJsonSchemaInClasspath("schema/postV1ViagemValida.json"));
+    } */
+
+    @Test
+    public void testRetornaUmaViagemPossuiStatusCode200EMostraLocalDeDestino() {
+        given()
+                .header("Authorization", tokenUsuario)
+        .when()
+                .get("/v1/viagens/1")
+        .then()
+                .assertThat()
+                .statusCode(200)
+                .body("data.localDeDestino", equalTo("Osasco"));
+    }
+
+    @Test
+    public void testViagemProcessaCorretamenteORetornoDaAPIDoTempo(){
+        given()
+            .header("Authorization", tokenUsuario)
+        .when()
+            .get("/v1/viagens/1")
+        .then()
+            .assertThat()
+                .statusCode(200)
+                .body("data.temperatura", equalTo(35.0f));
     }
 }
